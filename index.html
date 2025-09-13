@@ -1,1 +1,90 @@
-<h>Hello World!</h>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>SMM2 Flag Generator. Documentaiton by HappyLappy and Domthewiz</h2>
+<h2 id="dispVal">06000040</h2>
+<label for="cb1">In a Pipe:</label><input type="checkbox" onclick="fetchAndProcess(7,1)" id="cb1">
+<label for="cb2">Has Wings:</label><input type="checkbox" onclick="fetchAndProcess(7,2)" id="cb2">
+<label for="cb3">Alternate Variant:</label><input type="checkbox" onclick="fetchAndProcess(7,4)" id="cb3">
+<br><br>
+<label for="dd1">Pipe Direction :</label>
+<select id="dd1" onchange="handlePipeDirection()">
+	<option>Right</option>
+	<option>Left</option>
+	<option selected>Up (Default)</option>
+	<option>Down</option>
+</select>
+<br><br>
+<label for="cb4">Stretch Boo (?):</label><input type="checkbox" onclick="fetchAndProcess(5,1)" id="cb4">
+<label for="cb5">In a Clown Car:</label><input type="checkbox" onclick="fetchAndProcess(5,2)" id="cb5">
+<label for="cb6">On a Track:</label><input type="checkbox" onclick="fetchAndProcess(5,4)" id="cb6">
+<br><br>
+<label for="cb7">Enemy Stack (?):</label><input type="checkbox" onclick="fetchAndProcess(4,1)" id="cb7">
+<label for="cb8">1.5x Sized:</label><input type="checkbox" onclick="fetchAndProcess(4,2)" id="cb8">
+<label for="cb9">2x Sized:</label><input type="checkbox" onclick="fetchAndProcess(4,4)" id="cb9">
+<label for="cbA">Parachute:</label><input type="checkbox" onclick="fetchAndProcess(4,8)" id="cbA">
+<br><br>
+<label for="cbB">In a Cloud:</label><input type="checkbox" onclick="fetchAndProcess(3,1)" id="cbB">
+<label for="cbC">In a Cloud (?):</label><input type="checkbox" onclick="fetchAndProcess(3,2)" id="cbC">
+<label for="cbD">Trinary Alt Form 2:</label><input type="checkbox" onclick="fetchAndProcess(3,4)" id="cbD">
+<label for="cbE">Trinary Alt Form 3:</label><input type="checkbox" onclick="fetchAndProcess(3,8)" id="cbE">
+<br><br>
+<label for="dd2">Wall Cling :</label>
+<select id="dd2" onchange="handlePipeDirection()">
+	<option>Right</option>
+	<option>Left</option>
+	<option>Up</option>
+	<option selected>Down (Default)</option>
+</select><label for="cbF">In a Claw:</label><input type="checkbox" onclick="fetchAndProcess(1,8)" id="cbF">
+<script>
+	var bt = [0,6,0,0,0,0,4,0];
+	var cbBox = [0,0,0,0,0,0,0,0]
+	var btDisp = ["0","6","0","0","0","0","4","0"];
+	function updateValue(){
+		for (let i=0;i<8;i++){
+			btDisp[i] = bt[i].toString(16);
+			btDisp[i] = btDisp[i].toUpperCase();
+		}
+		document.getElementById('dispVal').innerHTML = btDisp.join("");
+	}
+	function fetchAndProcess(nybble,mask){
+		if ((Math.floor(cbBox[nybble]/mask)%2)==1){
+			cbBox[nybble] = cbBox[nybble]-mask;
+			bt[nybble] = bt[nybble]-mask;
+		} else {
+			bt[nybble] = bt[nybble]+mask;
+			cbBox[nybble] = cbBox[nybble]+mask;
+		}
+		updateValue();
+	}
+	function handlePipeDirection(){
+		bt[6] = 2*document.getElementById('dd1').selectedIndex;
+		bt[1] = 2*document.getElementById('dd2').selectedIndex;
+		if ((Math.floor(cbBox[1]/8)%2)==1){bt[1]=bt[1]+8;}
+		updateValue();
+	}
+</script>
+<style>
+	body {
+  		background-color: black;
+	}
+	h2 {
+		color: white;
+		font-family: Courier New;
+		font-size: 300%;
+		font-weight: lighter;
+	}
+	h1 {
+		color: white;
+		font-family: Lucida Console;
+		font-size: 100%;
+		font-weight: lighter;
+	}
+	label {
+		font-family: sans-serif;
+		color: white;
+		padding-left: 2%;
+	}
+</style>
+</body>
+</html>
