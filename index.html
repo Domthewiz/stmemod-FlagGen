@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>SMM2 Flag Generator. Documentaiton by HappyLappy and Domthewiz</h2>
+<h1>SMM2 Flag Generator. Documentation by HappyLappy and Domthewiz</h2>
+<a href="https://raw.githubusercontent.com/Domthewiz/smm2-documentation/refs/heads/master/stmemod.png">
+	<button>Memory Modding Info</button>
+</a>
+<a href="https://github.com/liamadvance/smm2-documentation/tree/master">
+	<button>SMM2 Documentation Github</button>
+</a>
 <h2 id="dispVal">06000040</h2>
 <label for="cb1">In a Pipe:</label><input type="checkbox" onclick="fetchAndProcess(7,1)" id="cb1">
 <label for="cb2">Has Wings:</label><input type="checkbox" onclick="fetchAndProcess(7,2)" id="cb2">
@@ -85,6 +91,23 @@
 		color: white;
 		padding-left: 2%;
 	}
+	button {
+  		background: linear-gradient(180deg, rgba(241,241,241,1) 0%, rgba(241,241,241,1) 40%, rgba(210,210,210,1) 60%, rgba(210,210,210,1) 100%);
+  		border: 2px solid #888888;
+  		border-radius: 3px;
+  		font-size: 90%;
+  		cursor: pointer;
+  		padding: 3px;
+  		padding-right: 10px;
+  		padding-left: 10px;
+  		transition-duration: 0.2s;
+  		font-family: sans-serif;
+	}
+	button:hover {
+	  	background: linear-gradient(180deg, rgba(222,242,252,1) 0%, rgba(222,242,252,1) 40%, rgba(178,224,249,1) 60%, rgba(178,224,249,1)	 100%);
+	  	border: 2px solid #79C0C7;
+	}
+
 </style>
 </body>
 </html>
