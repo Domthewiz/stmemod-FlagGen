@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SiXn8HUSorA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Domin\\source\\repos\\WinFormsApp3\\WinFormsApp3\\WinFormsApp3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Domin\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.2\\microsoft.net.illink.tasks.9.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
