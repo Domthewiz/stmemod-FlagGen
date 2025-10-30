@@ -17,49 +17,49 @@
 <h2 id="dispBin">00000110000000000000000001000000</h2>
 <h1>Binary (with spaces)</h1>
 <h2 id="dispBins">0000 0110 0000 0000 0000 0000 0100 0000</h2>
-<label for="cb1">In a Pipe:</label><input type="checkbox" onclick="fetchAndProcess(7,1)" id="cb1">
-<label for="cb2">Has Wings:</label><input type="checkbox" onclick="fetchAndProcess(7,2)" id="cb2">
-<label for="cb3">Alternate Variant:</label><input type="checkbox" onclick="fetchAndProcess(7,4)" id="cb3">
-<label for="cbM">Direction A1:</label><input type="checkbox" onclick="fetchAndProcess(7,8)" id="cbM">
+<label title="Object thinks it's in a pipe" for="cb1">In a Pipe:</label><input type="checkbox" onclick="fetchAndProcess(7,1)" id="cb1">
+<label title="Object thinks it has wings" for="cb2">Has Wings:</label><input type="checkbox" onclick="fetchAndProcess(7,2)" id="cb2">
+<label title="One of the places an object can store an alternate form. Typically used for Binary alt-forms (like goombas and goombrats)" for="cb3">Alternate Variant:</label><input type="checkbox" onclick="fetchAndProcess(7,4)" id="cb3">
+<label title="One of the places an object can store an alternate form/direction. May be a bitfield with 0x4 and/or 0x10. (like Thwomp Direction)" for="cbM">Direction A1:</label><input type="checkbox" onclick="fetchAndProcess(7,8)" id="cbM">
 <br><br>
-<label for="cbN">Direction A2:</label><input type="checkbox" onclick="fetchAndProcess(6,1)" id="cbN">
-<label for="dd1">Pipe Direction :</label>
+<label title="One of the places an object can store an alternate form/direction. May be a bitfield with 0x4 and/or 0x8. (like Thwomp Direction)" for="cbN">Direction A2:</label><input type="checkbox" onclick="fetchAndProcess(6,1)" id="cbN">
+<label title="Object comes out of pipe facing ____" for="dd1">Pipe Direction :</label>
 <select id="dd1" onchange="handlePipeDirection()">
 	<option>Right</option>
 	<option>Left</option>
 	<option selected>Up (Default)</option>
 	<option>Down</option>
 </select>
-<label for="cbO">Is Container/Has Contents:</label><input type="checkbox" onclick="fetchAndProcess(6,8)" id="cbO">
+<label title="Used by Pipes/Clowncars/Clouds/Claws to detect if something has been placed inside. &quot;Is Container&quot; is used on objects that don't have this flag normally, while &quot;Has Contents&quot; is used on objects that can. If &quot;Unused&quot;, this flag does not affect the object" for="cbO">Is Container/Has Contents:</label><input type="checkbox" onclick="fetchAndProcess(6,8)" id="cbO">
 <br><br>
-<label for="cb4">Stretch Boo (?):</label><input type="checkbox" onclick="fetchAndProcess(5,1)" id="cb4">
-<label for="cb5">In a Clown Car:</label><input type="checkbox" onclick="fetchAndProcess(5,2)" id="cb5">
-<label for="cb6">On a Track:</label><input type="checkbox" onclick="fetchAndProcess(5,4)" id="cb6">
+<label title="Only boos make use of this flag, and it detects whether the boo is a stretch. Weird, huh?" for="cb4">Stretch Boo (?):</label><input type="checkbox" onclick="fetchAndProcess(5,1)" id="cb4">
+<label title="Object thinks it's in a clowncar" for="cb5">In a Clown Car:</label><input type="checkbox" onclick="fetchAndProcess(5,2)" id="cb5">
+<label title="Object thinks it's on tracks" for="cb6">On a Track:</label><input type="checkbox" onclick="fetchAndProcess(5,4)" id="cb6">
 <br><br>
-<label for="cb7">Enemy Stack (?):</label><input type="checkbox" onclick="fetchAndProcess(4,1)" id="cb7">
-<label for="cb8">1.5x Sized:</label><input type="checkbox" onclick="fetchAndProcess(4,2)" id="cb8">
-<label for="cb9">2x Sized:</label><input type="checkbox" onclick="fetchAndProcess(4,4)" id="cb9">
-<label for="cbA">Parachute:</label><input type="checkbox" onclick="fetchAndProcess(4,8)" id="cbA">
+<label title="Object thinks it's in a stack" for="cb7">Enemy Stack (?):</label><input type="checkbox" onclick="fetchAndProcess(4,1)" id="cb7">
+<label title="Medium Sized enemies are a brand new discovery. Generally 1.5x in size, and have behavior consistent with their small counterparts" for="cb8">1.5x Sized:</label><input type="checkbox" onclick="fetchAndProcess(4,2)" id="cb8">
+<label title="Object believes it has ingested a mushroom, and grown to 2x in size. Many blocks react to this by becoming a 2x2 grid of themselves" for="cb9">2x Sized:</label><input type="checkbox" onclick="fetchAndProcess(4,4)" id="cb9">
+<label title="Object believes it has a parachute" for="cbA">Parachute:</label><input type="checkbox" onclick="fetchAndProcess(4,8)" id="cbA">
 <br><br>
-<label for="cbB">In a Cloud:</label><input type="checkbox" onclick="fetchAndProcess(3,1)" id="cbB">
-<label for="cbC">In a Cloud (?):</label><input type="checkbox" onclick="fetchAndProcess(3,2)" id="cbC">
-<label for="cbD">Trinary Alt Form 2:</label><input type="checkbox" onclick="fetchAndProcess(3,4)" id="cbD">
-<label for="cbE">Trinary Alt Form 3:</label><input type="checkbox" onclick="fetchAndProcess(3,8)" id="cbE">
+<label title="Object believes it is in a cloud. This is the one the game always uses" for="cbB">In a Cloud:</label><input type="checkbox" onclick="fetchAndProcess(3,1)" id="cbB">
+<label title="Object ALSO believes it is in a cloud. Could be a bitfield, or a duplicate flag" for="cbC">In a Cloud (?):</label><input type="checkbox" onclick="fetchAndProcess(3,2)" id="cbC">
+<label title="One of the places an object can store an alternate form. Typically used for Trinary alt-forms (like 10/30/50 coin type)." for="cbD">Trinary Alt Form 2:</label><input type="checkbox" onclick="fetchAndProcess(3,4)" id="cbD">
+<label title="One of the places an object can store an alternate form. Typically used for Trinary alt-forms (like 10/30/50 coin type)." for="cbE">Trinary Alt Form 3:</label><input type="checkbox" onclick="fetchAndProcess(3,8)" id="cbE">
 <br><br>
-<label for="cbG">Left Tracks / Begin Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,1)" id="cbG">
-<label for="cbH">Vert Tracks / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,2)" id="cbH">
+<label title="If the object is on tracks, it would travel to the left on those tracks; is a bitfield with 0x200000. If a door, warp box, or pipe, this is a bitfield of variable size that pairs doors/warp-boxes/pipes" for="cbG">Left Tracks / Begin Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,1)" id="cbG">
+<label title="If the object is on tracks, it would travel to the left on those tracks; is a bitfield with 0x200000. If a door, warp box, or pipe, this is a bitfield of variable size that pairs doors/warp-boxes/pipes" for="cbH">Vert Tracks / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,2)" id="cbH">
 <br><br>
-<label for="cbI">Alt Form 1/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,4)" id="cbI">
-<label for="cbJ">Alt Form 3/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,8)" id="cbJ">
+<label title="Part of a bitfield of variable size for storing alt-forms of objects with many of them (such as arrows with 8 unique directions). If a door, warp box, or pipe, this is a bitfield of variable size that pairs doors/warp-boxes/pipes." for="cbI">Alt Form 1/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,4)" id="cbI">
+<label title="Part of a bitfield of variable size for storing alt-forms of objects with many of them (such as arrows with 8 unique directions). If a door, warp box, or pipe, this is a bitfield of variable size that pairs doors/warp-boxes/pipes." for="cbJ">Alt Form 3/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,8)" id="cbJ">
 <br><br>
-<label for="cbL">Alt Form 5/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(1,1)" id="cbL">
-<label for="dd2">Wall Cling :</label>
+<label title="Part of a bitfield of variable size for storing alt-forms of objects with many of them (such as arrows with 8 unique directions). If a warp pipe, this is a bitfield of variable size that pairs warp pipes." for="cbL">Alt Form 5/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(1,1)" id="cbL">
+<label title="Object is hanging from the ____ wall." for="dd2">Wall Cling :</label>
 <select id="dd2" onchange="handlePipeDirection()">
 	<option>Right</option>
 	<option>Left</option>
 	<option>Up</option>
 	<option selected>Down (Default)</option>
-</select><label for="cbF">In a Claw:</label><input type="checkbox" onclick="fetchAndProcess(1,8)" id="cbF">
+</select><label title="Object believes its' in a claw. For some objects, this means moving up half a tile and no other behavioral change." for="cbF">In a Claw:</label><input type="checkbox" onclick="fetchAndProcess(1,8)" id="cbF">
 <script>
 	var bt = [0,6,0,0,0,0,4,0];
 	var cbBox = [0,0,0,0,0,0,0,0]
