@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>SMM2 Item Generator. Documentation by HappyLappy and Domthewiz</h2>
+<a href="https://raw.githubusercontent.com/Domthewiz/smm2-documentation/refs/heads/master/stmemod.png">
+	<button>Memory Modding Info</button>
+</a>
+<a href="https://github.com/liamadvance/smm2-documentation/tree/master">
+	<button>SMM2 Documentation Github</button>
+</a>
+<a href="https://domthewiz.github.io/stmemod-FlagGen/">
+	<button>SMM2 Flag Generator</button>
+</a>
+<h2 id="dispVal">FFFF0000</h2>
+<label for="dd1">Item :</label>
+<select id="dd1" onchange="handleItem()">
+	<option>Goomba</option>
+	<option>Koopa</option>
+	<option>Piranha</option>
+	<option>Hammer Bro</option>
+	<option>Brick Block</option>
+	<option>Question Block</option>
+	<option>Hard Block</option>
+	<option>Ground</option>
+	<option>Coin</option>
+	<option>Pipe</option>
+	<option>Spring</option>
+	<option>Lift</option>
+	<option>Thwomp</option>
+	<option>Bill Blaster</option>
+	<option>Mushroom Platform</option>
+	<option>Bob-omb</option>
+	<option>Semisolid (2D)</option>
+	<option>Bridge</option>
+	<option>P Switch</option>
+	<option>POW Block</option>
+	<option>Super Mushroom</option>
+	<option>Donut Block</option>
+	<option>Cloud Block</option>
+	<option>Note Block</option>
+	<option>Fire Bar</option>
+	<option>Spiny</option>
+	<option>Goal Ground</option>
+	<option>Goal Pole</option>
+	<option>Buzzy Beetle</option>
+	<option>Hidden Block</option>
+	<option>Lakitu</option>
+	<option>Lakitu Cloud</option>
+	<option>Banzi Bill</option>
+	<option>1-up</option>
+	<option>Fire Flower</option>
+	<option>Super Star</option>
+	<option>Lava Lift</option>
+	<option>Start Ground</option>
+	<option>Start Signboard</option>
+	<option>Magikoopa</option>
+	<option>Spike Top</option>
+	<option>Boo</option>
+	<option>Koopa Clown Car</option>
+	<option>Spike Trap</option>
+	<option>1st Special Powerup</option>
+	<option>Shoe/Yoshi Egg</option>
+	<option>Dry Bones</option>
+	<option>Cannon</option>
+	<option>Blooper</option>
+	<option>Castle Bridge</option>
+	<option>Hop-Chops</option>
+	<option>Skipsqueak</option>
+	<option>Wiggler</option>
+	<option>Conveyor</option>
+	<option>Burner</option>
+	<option>Warp Door</option>
+	<option>Cheep Cheep</option>
+	<option>Muncher</option>
+	<option>Rocky Wrench</option>
+	<option>Track</option>
+	<option>Lava Bubble</option>
+	<option>Chain Chomp</option>
+	<option>Bowser</option>
+	<option>Ice Block</option>
+	<option>Vine</option>
+	<option>Stingby</option>
+	<option>Arrow Sign</option>
+	<option>One-Way Wall</option>
+	<option>Grinder</option>
+	<option>Player (?)</option>
+	<option>10/30/50 Coin</option>
+	<option>Semisolid (3DW)</option>
+	<option>Koopa Troopa Car</option>
+	<option>Toad (Story)</option>
+	<option>Spike (Enemy)</option>
+	<option>Stone (Story)</option>
+	<option>Twister</option>
+	<option>Boom boom</option>
+	<option>Pokey</option>
+	<option>P Block</option>
+	<option>Dash Block</option>
+	<option>2nd Special Powerup</option>
+	<option>Bumper</option>
+	<option>Skewer</option>
+	<option>Snake Block</option>
+	<option>Track Block</option>
+	<option>Charvaargh</option>
+	<option>Gentle Slope</option>
+	<option>Steep Slope</option>
+	<option>Autoscroll Camera</option>
+	<option>Checkpoint</option>
+	<option>Seesaw</option>
+	<option>Pink Coin</option>
+	<option>Clear Pipe</option>
+	<option>Conveyor Belt Slope</option>
+	<option>Key</option>
+	<option>Ant Trooper</option>
+	<option>Warp Box</option>
+	<option>Bowser Jr.</option>
+	<option>ON/OFF Switch</option>
+	<option>Dotted-Line Block</option>
+	<option>Lava Editor</option>
+	<option>Monty Mole</option>
+	<option>Fish Bone</option>
+	<option>Angry Sun</option>
+	<option>Swinging Claw</option>
+	<option>Tree</option>
+	<option>Piranha Creeper</option>
+	<option>Blinking Block</option>
+	<option>Sound Effect (?)</option>
+	<option>Spike Block (3DW)</option>
+	<option>Mechakoopa</option>
+	<option>Crate</option>
+	<option>Mushroom Trampoline (3DW)</option>
+	<option>Porcupuffer</option>
+	<option>Goal Toadette</option>
+	<option>Super Hammer</option>
+	<option>Bully</option>
+	<option>Icicle</option>
+	<option>! Block (3DW)</option>
+	<option>Lemmy</option>
+	<option>Morton</option>
+	<option>Larry</option>
+	<option>Wendy</option>
+	<option>Iggy</option>
+	<option>Roy</option>
+	<option>Ludwig</option>
+	<option>Cannon Box</option>
+	<option>Propeller Box</option>
+	<option>Goomba Mask</option>
+	<option>Bullet Bill Mask</option>
+	<option>Red POW Box</option>
+	<option>ON/OFF Trampoline (3DW)</option>
+</select>
+<br><br>
+<label for="dd2">Contents / Child Item :</label>
+<select id="dd2" onchange="handleItem()">
+	<option selected>Nothing</option>
+	<option>Goomba</option>
+	<option>Koopa</option>
+	<option>Piranha</option>
+	<option>Hammer Bro</option>
+	<option>Brick Block</option>
+	<option>Question Block</option>
+	<option>Hard Block</option>
+	<option>Ground</option>
+	<option>Coin</option>
+	<option>Pipe</option>
+	<option>Spring</option>
+	<option>Lift</option>
+	<option>Thwomp</option>
+	<option>Bill Blaster</option>
+	<option>Mushroom Platform</option>
+	<option>Bob-omb</option>
+	<option>Semisolid (2D)</option>
+	<option>Bridge</option>
+	<option>P Switch</option>
+	<option>POW Block</option>
+	<option>Super Mushroom</option>
+	<option>Donut Block</option>
+	<option>Cloud Block</option>
+	<option>Note Block</option>
+	<option>Fire Bar</option>
+	<option>Spiny</option>
+	<option>Goal Ground</option>
+	<option>Goal Pole</option>
+	<option>Buzzy Beetle</option>
+	<option>Hidden Block</option>
+	<option>Lakitu</option>
+	<option>Lakitu Cloud</option>
+	<option>Banzi Bill</option>
+	<option>1-up</option>
+	<option>Fire Flower</option>
+	<option>Super Star</option>
+	<option>Lava Lift</option>
+	<option>Start Ground</option>
+	<option>Start Signboard</option>
+	<option>Magikoopa</option>
+	<option>Spike Top</option>
+	<option>Boo</option>
+	<option>Koopa Clown Car</option>
+	<option>Spike Trap</option>
+	<option>1st Special Powerup</option>
+	<option>Shoe/Yoshi Egg</option>
+	<option>Dry Bones</option>
+	<option>Cannon</option>
+	<option>Blooper</option>
+	<option>Castle Bridge</option>
+	<option>Hop-Chops</option>
+	<option>Skipsqueak</option>
+	<option>Wiggler</option>
+	<option>Conveyor</option>
+	<option>Burner</option>
+	<option>Warp Door</option>
+	<option>Cheep Cheep</option>
+	<option>Muncher</option>
+	<option>Rocky Wrench</option>
+	<option>Track</option>
+	<option>Lava Bubble</option>
+	<option>Chain Chomp</option>
+	<option>Bowser</option>
+	<option>Ice Block</option>
+	<option>Vine</option>
+	<option>Stingby</option>
+	<option>Arrow Sign</option>
+	<option>One-Way Wall</option>
+	<option>Grinder</option>
+	<option>Player (?)</option>
+	<option>10/30/50 Coin</option>
+	<option>Semisolid (3DW)</option>
+	<option>Koopa Troopa Car</option>
+	<option>Toad (Story)</option>
+	<option>Spike (Enemy)</option>
+	<option>Stone (Story)</option>
+	<option>Twister</option>
+	<option>Boom boom</option>
+	<option>Pokey</option>
+	<option>P Block</option>
+	<option>Dash Block</option>
+	<option>2nd Special Powerup</option>
+	<option>Bumper</option>
+	<option>Skewer</option>
+	<option>Snake Block</option>
+	<option>Track Block</option>
+	<option>Charvaargh</option>
+	<option>Gentle Slope</option>
+	<option>Steep Slope</option>
+	<option>Autoscroll Camera</option>
+	<option>Checkpoint</option>
+	<option>Seesaw</option>
+	<option>Pink Coin</option>
+	<option>Clear Pipe</option>
+	<option>Conveyor Belt Slope</option>
+	<option>Key</option>
+	<option>Ant Trooper</option>
+	<option>Warp Box</option>
+	<option>Bowser Jr.</option>
+	<option>ON/OFF Switch</option>
+	<option>Dotted-Line Block</option>
+	<option>Lava Editor</option>
+	<option>Monty Mole</option>
+	<option>Fish Bone</option>
+	<option>Angry Sun</option>
+	<option>Swinging Claw</option>
+	<option>Tree</option>
+	<option>Piranha Creeper</option>
+	<option>Blinking Block</option>
+	<option>Sound Effect (?)</option>
+	<option>Spike Block (3DW)</option>
+	<option>Mechakoopa</option>
+	<option>Crate</option>
+	<option>Mushroom Trampoline (3DW)</option>
+	<option>Porcupuffer</option>
+	<option>Goal Toadette</option>
+	<option>Super Hammer</option>
+	<option>Bully</option>
+	<option>Icicle</option>
+	<option>! Block (3DW)</option>
+	<option>Lemmy</option>
+	<option>Morton</option>
+	<option>Larry</option>
+	<option>Wendy</option>
+	<option>Iggy</option>
+	<option>Roy</option>
+	<option>Ludwig</option>
+	<option>Cannon Box</option>
+	<option>Propeller Box</option>
+	<option>Goomba Mask</option>
+	<option>Bullet Bill Mask</option>
+	<option>Red POW Box</option>
+	<option>ON/OFF Trampoline (3DW)</option>
+</select>
+<script>
+	var bt = [0,0];
+	var btDisp = ["FFFF","FFFF"];
+	function updateValue(){
+		for (let i=0;i<2;i++){
+			btDisp[i] = bt[i].toString(16);
+			btDisp[i] = btDisp[i].toUpperCase();
+			while (btDisp[i].length < 4) btDisp[i] = "0" + btDisp[i];
+		}
+		document.getElementById('dispVal').innerHTML = btDisp.join("");
+	}
+	function handleItem(){
+		bt[1] = document.getElementById('dd1').selectedIndex;
+		bt[0] = document.getElementById('dd2').selectedIndex -1;
+		if (bt[0]==-1) bt[0]=65535;
+		updateValue();
+	}
+</script>
+<style>
+	body {
+  		background-color: black;
+	}
+	h2 {
+		color: white;
+		font-family: Courier New;
+		font-size: 300%;
+		font-weight: lighter;
+	}
+	h1 {
+		color: white;
+		font-family: Lucida Console;
+		font-size: 100%;
+		font-weight: lighter;
+	}
+	label {
+		font-family: sans-serif;
+		color: white;
+		padding-left: 2%;
+	}
+	button {
+  		background: linear-gradient(180deg, rgba(241,241,241,1) 0%, rgba(241,241,241,1) 40%, rgba(210,210,210,1) 60%, rgba(210,210,210,1) 100%);
+  		border: 2px solid #888888;
+  		border-radius: 3px;
+  		font-size: 90%;
+  		cursor: pointer;
+  		padding: 3px;
+  		padding-right: 10px;
+  		padding-left: 10px;
+  		transition-duration: 0.2s;
+  		font-family: sans-serif;
+	}
+	button:hover {
+	  	background: linear-gradient(180deg, rgba(222,242,252,1) 0%, rgba(222,242,252,1) 40%, rgba(178,224,249,1) 60%, rgba(178,224,249,1)	 100%);
+	  	border: 2px solid #79C0C7;
+	}
+
+</style>
+</body>
+</html>
