@@ -17,7 +17,9 @@
 <label for="cb1">In a Pipe:</label><input type="checkbox" onclick="fetchAndProcess(7,1)" id="cb1">
 <label for="cb2">Has Wings:</label><input type="checkbox" onclick="fetchAndProcess(7,2)" id="cb2">
 <label for="cb3">Alternate Variant:</label><input type="checkbox" onclick="fetchAndProcess(7,4)" id="cb3">
+<label for="cbM">Direction A1:</label><input type="checkbox" onclick="fetchAndProcess(7,8)" id="cbM">
 <br><br>
+<label for="cbN">Direction A2:</label><input type="checkbox" onclick="fetchAndProcess(6,1)" id="cbN">
 <label for="dd1">Pipe Direction :</label>
 <select id="dd1" onchange="handlePipeDirection()">
 	<option>Right</option>
@@ -25,6 +27,7 @@
 	<option selected>Up (Default)</option>
 	<option>Down</option>
 </select>
+<label for="cbO">Is Container/Has Contents:</label><input type="checkbox" onclick="fetchAndProcess(6,8)" id="cbO">
 <br><br>
 <label for="cb4">Stretch Boo (?):</label><input type="checkbox" onclick="fetchAndProcess(5,1)" id="cb4">
 <label for="cb5">In a Clown Car:</label><input type="checkbox" onclick="fetchAndProcess(5,2)" id="cb5">
@@ -40,6 +43,13 @@
 <label for="cbD">Trinary Alt Form 2:</label><input type="checkbox" onclick="fetchAndProcess(3,4)" id="cbD">
 <label for="cbE">Trinary Alt Form 3:</label><input type="checkbox" onclick="fetchAndProcess(3,8)" id="cbE">
 <br><br>
+<label for="cbG">Left Tracks / Begin Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,1)" id="cbG">
+<label for="cbH">Vert Tracks / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,2)" id="cbH">
+<br><br>
+<label for="cbI">Alt Form 1/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,4)" id="cbI">
+<label for="cbJ">Alt Form 3/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(2,8)" id="cbJ">
+<br><br>
+<label for="cbL">Alt Form 5/N / Cont. Entry Index:</label><input type="checkbox" onclick="fetchAndProcess(1,1)" id="cbL">
 <label for="dd2">Wall Cling :</label>
 <select id="dd2" onchange="handlePipeDirection()">
 	<option>Right</option>
@@ -77,6 +87,9 @@
 		bt[6] = 2*document.getElementById('dd1').selectedIndex;
 		bt[1] = 2*document.getElementById('dd2').selectedIndex;
 		if ((Math.floor(cbBox[1]/8)%2)==1){bt[1]=bt[1]+8;}
+		if ((Math.floor(cbBox[1])%2)==1){bt[1]=bt[1]+1;}
+		if ((Math.floor(cbBox[6]/8)%2)==1){bt[6]=bt[6]+8;}
+		if ((Math.floor(cbBox[6])%2)==1){bt[6]=bt[6]+1;}
 		updateValue();
 	}
 
