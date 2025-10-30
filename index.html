@@ -16,10 +16,9 @@
 </a>
 <h1>4-Byte Block</h1>
 <h2 id="dispVal">06000040</h2>
-<h1>Binary (no spaces)</h1>
+<h1>Binary</h1>
+<label for="cbQ">Show Spaces:</label><input type="checkbox" onclick="cbinBoxF()" id="cbQ">
 <h2 id="dispBin">00000110000000000000000001000000</h2>
-<h1>Binary (with spaces)</h1>
-<h2 id="dispBins">0000 0110 0000 0000 0000 0000 0100 0000</h2>
 <label title="Object thinks it's in a pipe" for="cb1">In a Pipe:</label><input type="checkbox" onclick="fetchAndProcess(7,1)" id="cb1">
 <label title="Object thinks it has wings" for="cb2">Has Wings:</label><input type="checkbox" onclick="fetchAndProcess(7,2)" id="cb2">
 <label title="One of the places an object can store an alternate form. Typically used for Binary alt-forms (like goombas and goombrats)" for="cb3">Alternate Variant:</label><input type="checkbox" onclick="fetchAndProcess(7,4)" id="cb3">
@@ -65,7 +64,8 @@
 </select><label title="Object believes its' in a claw. For some objects, this means moving up half a tile and no other behavioral change." for="cbF">In a Claw:</label><input type="checkbox" onclick="fetchAndProcess(1,8)" id="cbF">
 <script>
 	var bt = [0,6,0,0,0,0,4,0];
-	var cbBox = [0,0,0,0,0,0,0,0]
+	var cbBox = [0,0,0,0,0,0,0,0];
+	var cbinBox = 0;
 	var btDisp = ["0","6","0","0","0","0","4","0"];
 	var binDisp = ["0000","0110","0000","0000","0000","0000","0100","0000"];
 	var binsDisp = ["0000 ","0110 ","0000 ","0000 ","0000 ","0000 ","0100 ","0000"];
@@ -76,8 +76,11 @@
 		}
 		document.getElementById('dispVal').innerHTML = btDisp.join("");
 		outputBinary()
-		document.getElementById('dispBin').innerHTML = binDisp.join("");
-		document.getElementById('dispBins').innerHTML = binsDisp.join("");
+		if (cbinBox==1){
+			document.getElementById('dispBin').innerHTML = binsDisp.join("");
+		} else {
+			document.getElementById('dispBin').innerHTML = binDisp.join("");
+		}
 	}
 	function fetchAndProcess(nybble,mask){
 		if ((Math.floor(cbBox[nybble]/mask)%2)==1){
@@ -98,7 +101,10 @@
 		if ((Math.floor(cbBox[6])%2)==1){bt[6]=bt[6]+1;}
 		updateValue();
 	}
-
+	function cbinBoxF(){
+		cbinBox = (cbinBox + 1)%2;
+		updateValue();
+	}
 	function outputBinary(){
 		for (let i=0;i<8;i++){
 			binDisp[i] = bt[i].toString(2);
