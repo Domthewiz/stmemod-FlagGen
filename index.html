@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>SMM2 Flag Generator. Documentation by HappyLappy and Domthewiz</h2>
+<h1>SMM2 Flag Generator. Documentation by HappyLappy and Domthewiz</h1>
 <a href="https://raw.githubusercontent.com/Domthewiz/smm2-documentation/refs/heads/master/stmemod.png">
 	<button>Memory Modding Info</button>
 </a>
 <a href="https://github.com/liamadvance/smm2-documentation/tree/master">
 	<button>SMM2 Documentation Github</button>
 </a>
+<h1>4-Byte Block</h1>
 <h2 id="dispVal">06000040</h2>
+<h1>Binary (no spaces)</h1>
+<h2 id="dispBin">00000110000000000000000001000000</h2>
+<h1>Binary (with spaces)</h1>
+<h2 id="dispBins">0000 0110 0000 0000 0000 0000 0100 0000</h2>
 <label for="cb1">In a Pipe:</label><input type="checkbox" onclick="fetchAndProcess(7,1)" id="cb1">
 <label for="cb2">Has Wings:</label><input type="checkbox" onclick="fetchAndProcess(7,2)" id="cb2">
 <label for="cb3">Alternate Variant:</label><input type="checkbox" onclick="fetchAndProcess(7,4)" id="cb3">
@@ -46,12 +51,17 @@
 	var bt = [0,6,0,0,0,0,4,0];
 	var cbBox = [0,0,0,0,0,0,0,0]
 	var btDisp = ["0","6","0","0","0","0","4","0"];
+	var binDisp = ["0000","0110","0000","0000","0000","0000","0100","0000"];
+	var binsDisp = ["0000 ","0110 ","0000 ","0000 ","0000 ","0000 ","0100 ","0000"];
 	function updateValue(){
 		for (let i=0;i<8;i++){
 			btDisp[i] = bt[i].toString(16);
 			btDisp[i] = btDisp[i].toUpperCase();
 		}
 		document.getElementById('dispVal').innerHTML = btDisp.join("");
+		outputBinary()
+		document.getElementById('dispBin').innerHTML = binDisp.join("");
+		document.getElementById('dispBins').innerHTML = binsDisp.join("");
 	}
 	function fetchAndProcess(nybble,mask){
 		if ((Math.floor(cbBox[nybble]/mask)%2)==1){
@@ -69,6 +79,15 @@
 		if ((Math.floor(cbBox[1]/8)%2)==1){bt[1]=bt[1]+8;}
 		updateValue();
 	}
+
+	function outputBinary(){
+		for (let i=0;i<8;i++){
+			binDisp[i] = bt[i].toString(2);
+			while (binDisp[i].length < 4) binDisp[i] = "0" + binDisp[i];
+			binsDisp[i] = binDisp[i];
+			if (i<7) binsDisp[i] = binDisp[i] + " ";
+		}
+	}
 </script>
 <style>
 	body {
@@ -77,7 +96,7 @@
 	h2 {
 		color: white;
 		font-family: Courier New;
-		font-size: 300%;
+		font-size: 200%;
 		font-weight: lighter;
 	}
 	h1 {
